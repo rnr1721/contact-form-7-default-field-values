@@ -1,0 +1,67 @@
+.hndle {
+    padding: 10px;
+    background-color: #0073aa;
+    color: #fff;
+}
+
+.inside {
+    padding: 20px;
+}
+
+#item-name {
+    width: 60%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#btn_add_item,
+.edit-btn,
+.delete-btn {
+    background-color: #0073aa;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.edit-btn,
+.delete-btn {
+    background-color: #e44d26;
+}
+
+#item-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#item-list li {
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#item-list li span {
+    flex: 1;
+}
+
+#item-list li button {
+    margin-left:5px;
+    background-color: #0073aa;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+#item-list li .edit-btn {
+    background-color: #e44d26;
+}
