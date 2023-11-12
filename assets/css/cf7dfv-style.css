@@ -1,22 +1,23 @@
-.hndle {
+.cf7dfv_hndle {
     padding: 10px;
     background-color: #0073aa;
     color: #fff;
+    margin-top:0px;
 }
 
-.inside {
+.cf7dfv_inside {
     padding: 20px;
 }
 
-#item-name {
+#cf7dfv_item-name {
     width: 60%;
     padding: 10px;
     margin-bottom: 10px;
 }
 
-#btn_add_item,
-.edit-btn,
-.delete-btn {
+#cf7dfv_btn_add_item,
+.cf7dfv_edit-btn,
+.cf7dfv_delete-btn {
     background-color: #0073aa;
     color: #fff;
     border: none;
@@ -28,17 +29,17 @@
     display: inline-block;
 }
 
-.edit-btn,
-.delete-btn {
+.cf7dfv_edit-btn,
+.cf7dfv_delete-btn {
     background-color: #e44d26;
 }
 
-#item-list {
+#cf7dfv_item-list {
     list-style-type: none;
     padding: 0;
 }
 
-#item-list li {
+#cf7dfv_item-list li {
     margin-bottom: 10px;
     border: 1px solid #ddd;
     padding: 10px;
@@ -47,11 +48,11 @@
     align-items: center;
 }
 
-#item-list li span {
+#cf7dfv_item-list li span {
     flex: 1;
 }
 
-#item-list li button {
+#cf7dfv_item-list li button {
     margin-left:5px;
     background-color: #0073aa;
     color: #fff;
@@ -62,6 +63,6 @@
     text-decoration: none;
 }
 
-#item-list li .edit-btn {
+#cf7dfv_item-list li .cf7dfv_edit-btn {
     background-color: #e44d26;
 }

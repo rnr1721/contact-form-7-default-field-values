@@ -1,0 +1,133 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Contact Form 7 default field values\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-12 15:55+0000\n"
+"PO-Revision-Date: 2023-11-12 16:53+0000\n"
+"Last-Translator: \n"
+"Language-Team: Ukrainian\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10 >= 2 && "
+"n%10<=4 &&(n%100<10||n%100 >= 20)? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.6; wp-6.4.1\n"
+"X-Domain: cf7dfv"
+
+#: views/settings.php:9
+msgid "Add"
+msgstr "Додати"
+
+#: views/settings.php:36
+msgid ""
+"Add the fields you use in contact form 7. You should add those fields that "
+"you will use as parameters for shortcodes."
+msgstr ""
+"Додайте поля, які ви використовуєте в contact form 7. Ви повинні додати ті "
+"поля, які ви будете використовувати як параметри для шорткодів."
+
+#: views/settings.php:27
+msgid "After it, you can use in form template in contact-form-7:"
+msgstr "Після цього ви можете використовувати шаблон форми в contact-form-7:"
+
+#: wp-contact-form-7-default-field-values.php:29
+msgid "Already exists"
+msgstr "Вже існує"
+
+#: views/settings.php:40
+msgid ""
+"Also, you can add fields to ready-made shortcodes in the code of your themes "
+"and plugins, modifying them on the fly. For example:"
+msgstr ""
+"Також ви можете додавати поля до готових шорткодів у коді ваших тем і "
+"плагінів, змінюючи їх на льоту. Наприклад:"
+
+#. Name of the plugin
+msgid "Contact Form 7 default field values"
+msgstr "Дефолтні значення полів contact form 7"
+
+#: wp-contact-form-7-default-field-values.php:46
+msgid "Contact form 7 default field values"
+msgstr "Contact form 7 вміст полів за замовчуванням"
+
+#: wp-contact-form-7-default-field-values.php:32
+msgid "Delete"
+msgstr "Видалити"
+
+#: wp-contact-form-7-default-field-values.php:31
+msgid "Edit"
+msgstr "Редагувати"
+
+#: wp-contact-form-7-default-field-values.php:30
+msgid "Edit item name"
+msgstr "Змінити ім'я елементу"
+
+#. Author of the plugin
+msgid "Eugeny G"
+msgstr "Eugeny G"
+
+#: views/settings.php:8
+msgid "Field name"
+msgstr "Ім'я поля"
+
+#: wp-contact-form-7-default-field-values.php:47
+msgid "Fields for default values"
+msgstr "Поля для дефолтних значень"
+
+#: views/settings.php:1
+msgid "Fields that allow be used with default values in contact-form-7"
+msgstr ""
+"Поля, які дозволяють використовувати значення за замовчуванням у contact "
+"form 7"
+
+#: views/settings.php:63
+msgid "How check if shortcode parameter present?"
+msgstr "Як перевірити, чи присутній параметр шорткоду?"
+
+#: views/settings.php:20
+msgid "How it use"
+msgstr "Як цим користуватись"
+
+#. Author URI of the plugin
+msgid "https://github.com/rnr1721"
+msgstr "https://github.com/rnr1721"
+
+#. URI of the plugin
+msgid "https://github.com/rnr1721/contact-form-7-default-field-values"
+msgstr "https://github.com/rnr1721/contact-form-7-default-field-values"
+
+#: views/settings.php:33
+msgid "It important! In contact-form-7 form must be present parameter"
+msgstr "Це важливо! У формі contact-form-7 має бути присутнім параметр"
+
+#: views/settings.php:6
+msgid "list of fields"
+msgstr "Список полів"
+
+#: views/settings.php:54
+msgid "Or if you only need to insert one parameter, you can use this syntax:"
+msgstr ""
+"Або якщо вам потрібно вставити лише один параметр, ви можете використати цей "
+"синтаксис:"
+
+#. Description of the plugin
+msgid ""
+"Plugin that can add default field values to some fields in contact-form-7 "
+"shortcodes"
+msgstr ""
+"Плагін, який може додавати значення полів за замовчуванням до деяких полів у "
+"коротких кодах contact form 7"
+
+#: views/settings.php:23
+msgid ""
+"This plugin allows you to set default field values in shortcodes. For "
+"example:"
+msgstr ""
+"Цей плагін дозволяє встановлювати значення полів за замовчуванням у "
+"шорткодах. Наприклад:"
+
+#: views/settings.php:38
+msgid "Use in code"
+msgstr "Користування у коді"

@@ -1,13 +1,13 @@
 <?php
 
 /*
- * Plugin Name: Contact Form 7 default field values
+ * Plugin Name: Default field values for Contact Form 7
  * Plugin URI: https://github.com/rnr1721/contact-form-7-default-field-values
  * Description: Plugin that can add default field values to some fields in contact-form-7 shortcodes
  * Author: Eugeny G
  * Author URI: https://github.com/rnr1721
- * License: MIT License
- * License URI: https://www.mit.edu/~amini/LICENSE.md
+ * License: GPL v2 or later
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Version: 1.0.0
  * Requires at least: 6.2
  * Requires PHP: 7.4
@@ -15,75 +15,8 @@
  * Text Domain: cf7dfv
  */
 
-// Add plugin scripts and css
-function cf7_custom_field_values_admin_assets()
-{
-    if (is_admin()) {
-        wp_enqueue_style('cf7-custom-field-values', plugins_url('assets/css/cf7dfv-style.css', __FILE__));
-        wp_enqueue_script('cf7-custom-field-values', plugins_url('assets/js/cf7dfv-settings.js', __FILE__), array('jquery'), '1.0', true);
-        load_plugin_textdomain('cf7dfv', false, dirname(plugin_basename(__FILE__)) . '/languages');
-        wp_localize_script('cf7-custom-field-values', 'cf7dfv_ajax', array(
-            'url' => admin_url('admin-ajax.php'),
-            'already_exists' => __('Already exists', 'cf7dfv'),
-            'edit_item_name' => __('Edit item name', 'cf7dfv')
-        ));
-    }
-}
-
-add_action('admin_enqueue_scripts', 'cf7_custom_field_values_admin_assets');
-
-// Add admin page as child menu item of Contact-Form-7
-function cf7_custom_field_values_menu()
-{
-    add_submenu_page(
-            'wpcf7',
-            'Contact form 7 default field values',
-            'Fields for default values',
-            'manage_options',
-            'contact-form-7-default-field-values',
-            'cf7_custom_field_values_settings'
-    );
-}
-
-add_action('admin_menu', 'cf7_custom_field_values_menu');
-
-// AJAX обработчики
-add_action('wp_ajax_save_data', 'cf7_custom_field_values_save_data_callback');
-add_action('wp_ajax_get_data', 'cf7_custom_field_values_get_data_callback');
-
-// Callback for store data
-function cf7_custom_field_values_save_data_callback()
-{
-    $items = filter_input(INPUT_POST, 'items', FILTER_SANITIZE_STRING);
-
-    if (empty($items)) {
-        $result = [];
-    } else {
-        $result = json_decode(htmlspecialchars_decode($items), true);
-    }
-
-    update_option('cf7dfv_fields', json_encode($result));
-    wp_send_json_success($result);
-}
-
-// Callback for get data
-function cf7_custom_field_values_get_data_callback()
-{
-    $items = get_option('cf7dfv_fields', '');
-
-    if (empty($items)) {
-        $result = [];
-    } else {
-        $result = json_decode($items, true);
-    }
-
-    wp_send_json_success($result);
-}
-
-// Display plugin page
-function cf7_custom_field_values_settings()
-{
-    include(plugin_dir_path(__FILE__) . 'views/settings.php');
+if (is_admin()) {
+    include(dirname(__FILE__) . '/admin.php');
 }
 
 /**
@@ -108,3 +41,56 @@ function cf7_custom_field_values_run($out, $pairs, $atts)
 }
 
 add_filter('shortcode_atts_wpcf7', 'cf7_custom_field_values_run', 10, 3);
+
+/**
+ * This function add default values for fields in Contact Form 7 shortcode.
+ * If params empty string or empty array it return source state of shortcode
+ * 
+ * @param string $shortcode
+ * @param array|string $params Key=>Value array or string in format "param:value"
+ * @return string Returns shortcode with added parameters
+ */
+function cf7_add_shortcode_params($shortcode, $params = array())
+{
+    if (empty($params)) {
+        return $shortcode;
+    }
+    $shortcodeWithoutEndBrace = rtrim($shortcode, ' ]');
+    if (is_string($params)) {
+        $paramsExploded = explode(':', $params);
+        $params = array(
+            $paramsExploded[0] => $paramsExploded[1]
+        );
+    }
+    foreach ($params as $param => $paramValue) {
+        $shortcodeWithoutEndBrace .= ' ' . $param . '="' . $paramValue . '"';
+    }
+    return $shortcodeWithoutEndBrace . ']';
+}
+
+/**
+ * Checks for the presence of a parameter in a shortcode within the content of
+ * the current post.
+ *
+ * @param string $shortcode The name of the shortcode to check.
+ * @param string $parameter The name of the parameter to check.
+ * @return bool Returns true if the parameter exists, and false otherwise.
+ */
+function cf7_shortcode_has_param($shortcode, $parameter)
+{
+    $matches = [];
+    preg_match_all('/\[(' . $shortcode . ')([^\]]*?)\]/', get_the_content(), $matches);
+
+    if (empty($matches[0])) {
+        return false;
+    }
+
+    foreach ($matches[2] as $shortcode_attributes) {
+        $attributes = shortcode_parse_atts($shortcode_attributes);
+        if (isset($attributes[$parameter])) {
+            return true;
+        }
+    }
+
+    return false;
+}

@@ -5,10 +5,12 @@
 
     $(document).ready(function () {
 
-        var name = $("#item-name");
+        var name = $("#cf7dfv_item-name");
+        var btn_add_item = $('#cf7dfv_btn_add_item');
+        var item_list = $("#cf7dfv_item-list");
         var items = [];
 
-        $('#btn_add_item').click(function () {
+        btn_add_item.click(function () {
             let itemName = name.val();
             if (itemName.trim() !== "") {
                 if (!items.includes(itemName)) {
@@ -23,8 +25,7 @@
         });
 
         function renderItems() {
-            var itemList = $("#item-list");
-            itemList.empty();
+            item_list.empty();
 
             items.forEach(function (item, index) {
                 var listItem = $("<li>")
@@ -34,20 +35,20 @@
                                 )
                         .append(
                                 $("<button>")
-                                .text("Edit")
+                                .text(cf7dfv_ajax.edit)
                                 .click(function () {
                                     editItem(index);
                                 })
                                 )
                         .append(
                                 $("<button>")
-                                .text("Delete")
+                                .text(cf7dfv_ajax.delete)
                                 .click(function () {
                                     deleteItem(index);
                                 })
                                 );
 
-                itemList.append(listItem);
+                item_list.append(listItem);
             });
         }
 
